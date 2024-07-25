@@ -60,11 +60,68 @@
         
 # print(*check_list) 
 
-# 2675
-t = int(input())
+# # 2675
+# t = int(input())
 
-for _ in range(t):
-    r, s = list(map(str, input().split()))
-    for i in s:
-        print(i*int(r), end='')
-    print()
+# for _ in range(t):
+#     r, s = list(map(str, input().split()))
+#     for i in s:
+#         print(i*int(r), end='')
+#     print()
+
+
+
+# # 1152 단어의 개수 - 파이썬에서만 쉽대
+# string = list(input().split())
+
+# print(len(string))
+
+
+
+# # 2908 상수
+
+# a, b = map(str,input().split())
+
+# rev_a = a[::-1]
+# rev_b = b[::-1]
+
+# if int(rev_a) > int(rev_b):
+#     print(rev_a)
+# else:
+#     print(rev_b)
+
+
+# # 5622 다이얼  time 기본 세팅값에 따라 뒤의 코드가 달라짐
+# string = input()
+
+# # print(ord('A')) # 65
+# # print(ord('Z')) # 90
+# time = 0
+# for i in string:
+#     if 65 <= ord(i) <68:
+#         time += 3
+#     elif 68 <= ord(i) <71:
+#         time += 4
+#     elif 71 <= ord(i) <74:
+#         time += 5
+#     elif 74 <= ord(i) <77:
+#         time += 6
+#     elif 77 <= ord(i) <80:
+#         time += 7
+#     elif 80 <= ord(i) <84:
+#         time += 8
+#     elif 84 <= ord(i) <87:
+#         time += 9
+#     elif 87 <= ord(i) <91:
+#         time += 10
+
+# print(time)
+
+
+# # 11718 그대로 출력하기 Vscode EOF = ctrl z 파이참 d
+# while True:
+#     try:
+#         x = print(input())
+
+#     except:
+#         break
