@@ -59,3 +59,12 @@
 #         check_list.append(-1)
         
 # print(*check_list) 
+
+# 2675
+t = int(input())
+
+for _ in range(t):
+    r, s = list(map(str, input().split()))
+    for i in s:
+        print(i*int(r), end='')
+    print()
