@@ -34,3 +34,31 @@
 
 #     print(blk * (n-(i)),end='')
 #     print(star*((i*2)-1))
+
+
+# # 10988 펠린드롬  인덱스 슬라이싱
+
+# string = input()
+# str_len = len(string)
+
+# check_lst =[]
+# if str_len % 2 == 0:
+#     if len(string) % 2 == 0:
+#         for i in range(0, str_len//2):
+#             if string[i] == string[str_len-i-1]:
+#                 check_lst.append(1)
+#             else:
+#                 check_lst.append(0)
+# else:
+#     for i in range(0, str_len//2):
+#         if string[i] == string[str_len-i-1]:
+#             check_lst.append(1)
+#         else:
+#             check_lst.append(0)
+
+
+
+# if 0 in check_lst:
+#     print(0)
+# else:
+#     print(1)
