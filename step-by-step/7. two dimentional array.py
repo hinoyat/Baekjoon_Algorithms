@@ -149,10 +149,6 @@
 #         else:
 #             cnt_black +=1
 
-# # for x in range(100):
-# #     for y in range(100):
-# #         cnt_black += arr[x][y]
-
 # print(cnt_black)
 
 
