@@ -110,3 +110,68 @@
 #     else:
 #         result.append(chr(value[len(value)-1-i]+48))
 #         print(result[i],end='')
+
+# # 2720 세탁소 사장 동혁
+
+# t = int(input())
+# for i in range(t):
+#     money = int(input())
+#     cnt_lst = []
+    
+#     quater = money // 25
+#     cnt_lst.append(quater)
+#     money %= 25
+
+#     dime = money //10
+#     cnt_lst.append(dime)
+#     money %= 10
+    
+#     nickel = money //5
+#     cnt_lst.append(nickel)
+#     money %= 5
+
+#     penny = money //1
+#     cnt_lst.append(penny)
+#     money %= 1
+
+#     print(*cnt_lst)
+
+# # 2903 중앙 이동 알고리즘
+# '''
+# 초기 2
+# 1번 3 9
+# 2번 5 25
+# 3반 9 81
+# 4번 17 289
+# 5번 33  1089
+# '''
+# start = 2
+# n = int(input())
+# for i in range(n):
+#     start *= 2
+#     start -= 1
+    
+# result = start**2
+# print(result)
+
+
+# # 2292 벌집
+# '''
+# 1까지  방 1 
+# 7까지  방 2 + 6 
+# 19까지  방3  + 12
+# 37까지  방4  + 18
+# 61까지  방 5  + 24
+# '''
+
+# n = int(input())
+# room = 1
+# romm_value = 1
+# while n > romm_value:
+#     romm_value = romm_value + (6*room)
+#     room +=1
+
+# print(room)
+
+# 1193 분수 찾기
+
