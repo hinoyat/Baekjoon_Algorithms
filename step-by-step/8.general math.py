@@ -174,4 +174,25 @@
 # print(room)
 
 # 1193 분수 찾기
+# pass
 
+
+
+# 2869 달팽이는 올라가고 시프다
+a ,b, v = map(int,input().split())
+high = v - a
+# print(high)
+day = 1
+moving_day = 0
+if high >0:
+    if high // (a-b) >= 0 and high // (a-b) <1:
+        moving_day = 1
+    elif high // (a-b) >=1:
+        moving_day = high // (a-b)
+elif high == 0:
+    moving_day = 0
+    
+# print(moving_day)
+
+result = day + moving_day
+print(result)
