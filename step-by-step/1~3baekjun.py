@@ -208,3 +208,28 @@
 # for i in range(0,N):
 #     print(' '*(N-(i+1))+'*'*(i+1))
 
+# test
+import sys
+input = sys.stdin.readline
+N = int(input())
+
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+
+# 오름차순으로 정렬하면서, 중간에 배열 A가 배열 B와 같은지 확인
+for i in range(N-1, 0, -1):
+    max_idx = 0
+    
+    # 최대값을 찾아서 맨 뒤로 이동
+    for j in range(1, i + 1):
+        if A[j] > A[max_idx]:
+            max_idx = j
+
+    A[i], A[max_idx] = A[max_idx], A[i]
+
+    # 배열 A와 배열 B를 비교
+    if A == B:
+        print(1)
+        break
+else:
+    print(0)
