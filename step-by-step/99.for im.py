@@ -57,3 +57,20 @@ from pprint import pprint
 
 # for c in cnt_lst:
 #     print(c)
+
+
+# 13300 방 배정
+
+N, K = map(int, input().split())
+lst = []
+dct = {}
+for _ in range(N):
+    S_Y = tuple(map(int, input().split()))
+    lst.append(S_Y)
+
+for i in lst:
+    if i not in dct :
+        dct[i] = 1
+    else:
+        dct[i] += 1
+
