@@ -97,7 +97,7 @@ from pprint import pprint
 #             stdnt[i-num[i]+j], stdnt[i] = stdnt[i], stdnt[i-num[i]+j]
 # print(*stdnt)
 
-# # 14696 딱지놀이
+# # 14696 딱지놀이 ## 
 # N = int(input())
 # for round in range(1, N+1):
 #     A = list(map(int, input().split()))
@@ -120,7 +120,7 @@ from pprint import pprint
 #             pass
 #     print(winner)
 
-# # 2628 종이 자르기
+# # 2628 종이 자르기 ### 
 
 # row, col = map(int, input().split())
 # N = int(input())
@@ -230,3 +230,46 @@ from pprint import pprint
 
     
 # # pprint(arr_a)
+
+
+# 1244 스위치 켜고 끄기
+
+N = int(input())
+switch = [99] + list(map(int, input().split()))
+# print(switch)
+st_num = int(input())
+for _ in range(st_num):
+    gen, num = map(int, input().split())
+    # 남
+    if gen == 1:
+        for i in range(1, len(switch)):
+            if i % num == 0:
+                if switch[i] == 1:
+                    switch[i] = 0
+                else:
+                    switch[i] = 1
+    # 여
+    elif gen == 2:
+        for i in range(N):
+            if i == num:
+                if switch[i] ==0:
+                    switch[i] = 1
+                else:
+                    switch[i] = 0
+                for j in range(0, N):
+                    if i - j > 0 and i + j <= N:
+                        if switch[i-j] == switch[i+j]:
+                            if switch[i-j] == 1 and switch[i+j] == 1:
+                                switch[i-j] = 0
+                                switch[i+j] = 0
+                                
+                            else:
+                                switch[i-j] = 1
+                                switch[i+j] = 1
+
+
+
+for i in range(1, N+1):
+    print(switch[i], end =' ')
+    if i % 20 == 0:
+        print()
