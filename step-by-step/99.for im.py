@@ -271,4 +271,340 @@ from pprint import pprint
 #         print()
 
 
-# 비밀번호
+
+
+# # 2477 참외밭
+# fruit = int(input())
+# direction = [[] for _ in range(4)]
+# for i in range(6):
+#     di, length = map(int, input().split())
+#     if di ==1:
+#         direction[0].append(length)
+#     elif di ==2:
+#         direction[1].append(length)
+#     elif di ==3:
+#         direction[2].append(length)
+#     else:
+#         direction[3].append(length)
+# print(direction)
+
+# big = []
+# small = []
+
+# for i in direction:
+#     if len(i) == 1:
+#         a = i.pop()
+#         big.append(a)
+#     else:
+#         small.append(min(i))
+
+# # print(big, small)
+
+# result = (big[0] * big[1] * fruit) - (small[0]*small[1]*fruit)
+# print(result)
+
+# # 2477 참외밭
+# fruit = int(input())
+# direction = []
+# length = []
+# row = []
+# col = []
+
+# for i in range(6):
+#     dir, leng = map(int, input().split())
+#     direction.append(dir)
+#     length.append(leng)
+#     if dir == 1 or dir == 2:
+#         row.append(leng)
+#     else:
+#         col.append(leng)
+
+# # print(direction, length)
+# s1 = 0
+# s2 = 0
+# for j in range(5):
+#     if direction[j] == 4 and direction[j+1] == 1:
+#         s1 = j
+#         s2 = j+1
+#         break
+#     if direction[j] == 3 and direction[j+1] == 2:
+#         s1 = j
+#         s2 = j+1
+#         break
+#     if direction[j] == 2 and direction[j+1] == 4:
+#         s1 = j
+#         s2 = j+1
+#         break
+#     if direction[j] == 1 and direction[j+1] == 3:
+#         s1 = j
+#         s2 = j+1
+#         break
+# if (direction[0]==1 and direction[-1] == 4):
+#     s1 = 0
+#     s2 = 5
+# if (direction[0]==2 and direction[-1] == 3):
+#     s1 = 0
+#     s2 = 5
+# if (direction[0]==4 and direction[-1] == 2):
+#     s1 = 0
+#     s2 = 5
+# if (direction[0]==3 and direction[-1] == 1):
+#     s1 = 0
+#     s2 = 5
+
+
+# small = length[s1] * length[s2] * fruit
+# big = max(row) * max(col) * fruit
+# result = big - small
+# print(result)
+    
+
+# # print(s1, s2)
+# # 가장 큰 사각형의 넓이
+
+
+# # 10157 자리배전
+# col, row = map(int, input().split())
+# arr = [[[] for _ in range(col)] for _ in range(row)]
+# for i in range(row):
+#     for j in range(col):
+#         arr[row - i - 1][j] = [j+1, i+1]
+# # pprint(arr)
+# K = int(input())
+# # 상 우 좌 하
+# # print(visited)
+
+# di = [-1, 0, 0, 1]
+# dj = [0, 1, -1, 0]
+
+# k = 0
+# cnt = 0
+# ni = row - 1
+# nj = 0
+# r_i = 0
+# r_j = 0
+
+# visited = [[0 for _ in range(col)] for _ in range(row)]
+
+# for i in range(row):
+#     for j in range(col):
+#         visited[ni][nj] = 1
+#         cnt += 1
+#         if cnt >= K:
+#             r_i = ni
+#             r_j = nj
+#             break
+#         newi = ni + di[k]
+#         newj = nj + dj[k]
+#         for _ in range(4):
+#             if newi < 0 or newi >= row or newj < 0 or newj >= col or visited[newi][newj] !=0:
+#                 k+=1
+#                 if k == 4:
+#                     k = 0
+#                 newi = ni + di[k]
+#                 newj = nj + dj[k]
+#         ni = newi
+#         nj = newj
+
+# result = arr[r_i][r_j]
+# # pprint(visited)
+# # print(cnt)
+# # print(K)
+
+# pos = True
+
+# if K > col * row:
+#     pos = False
+
+# if pos == False:
+#     print(0)
+# else:
+#     print(*result)
+
+
+
+
+# # 10158 개미
+# # 오위 좌위 좌하 우위
+# di = [-1, -1, 1, 1]
+# dj = [1, -1, -1, 1]
+# def right_up(i, j, cnt):
+#     if cnt == move:
+#         return i, j, cnt
+
+#     if i == row  and j == col:
+#         return left_down(i-1, j-1, cnt)
+    
+#     if i == row and j < col:
+#         return left_down(i-1, j, cnt)
+    
+#     if i < row and j == col:
+#         return left_up(i, j-1, cnt)
+#     print(0)
+#     cnt += 1
+#     i -= 1
+#     j += 1
+#     return right_up(i, j, cnt)
+    
+
+# def left_up(i, j, cnt):
+#     if cnt == move:
+#         return i, j, cnt
+    
+#     if i == row  and j == col:
+#         return right_down(i-1, j-1, cnt)
+    
+#     if i == row and j < col:
+#         return left_down(i-1, j, cnt)
+    
+#     if i < row and j == 0:
+#         return right_up(i, j, cnt)
+#     print(1)
+#     cnt += 1
+#     i -= 1
+#     j -= 1
+#     return left_up(i, j, cnt)
+
+
+# def left_down(i, j, cnt):
+#     if cnt == move:
+#         return i, j, cnt
+    
+#     if i == 0  and j == 0:
+#         return right_up(i, j, cnt)
+    
+#     if i == 0 and j > 0:
+#         return left_up(i, j, cnt)
+    
+#     if i > 0 and j == 0:
+#         return right_down(i, j, cnt)
+#     print(2)
+#     cnt += 1
+#     i += 1
+#     j -= 1
+#     return left_down(i, j, cnt)
+
+# def right_down(i, j, cnt):
+#     if cnt == move:
+#         return i, j, cnt
+    
+#     if i == 0  and j == col:
+#         return left_up(i, j, cnt)
+    
+#     if i == 0 and j < col:
+#         return right_up(i, j, cnt)
+    
+#     if i > 0 and j == col:
+#         return left_down(i, j, cnt)
+#     print(3)
+#     cnt += 1
+#     i += 1
+#     j += 1
+#     return right_down(i, j, cnt)
+
+
+# col, row = map(int, input().split())
+# s_j, s_i = map(int, input().split())
+# move = int(input())
+# arr = [[0 for _ in range(col)] for _ in range(row)]
+# start_i = row - s_i-1
+# start_j = s_j
+# cnt_v = 0
+# result = right_up(start_i, start_j, cnt_v)
+# print(result)
+
+# # pprint(arr)
+
+
+# # 10158 개미
+# import sys
+# sys.setrecursionlimit(100000)
+# def right_up(i, j, cnt):
+#     if cnt == move:
+#         return i, j, cnt
+
+#     if i == row  and j == col:
+#         return left_down(i, j, cnt)
+    
+#     elif i == row and j < col:
+#         return right_down(i, j, cnt)
+    
+#     elif 0 < i < row and j == col:
+#         return left_up(i, j, cnt)
+#     cnt += 1
+#     i += 1
+#     j += 1
+#     # print(0) 
+#     # print(i, j, cnt)
+#     return right_up(i, j, cnt)
+    
+
+# def left_up(i, j, cnt):
+#     if cnt == move:
+#         return i, j, cnt
+
+#     if i == row  and 0 < j < col:
+#         return left_down(i, j, cnt)
+    
+#     elif i == row and j ==0:
+#         return right_down(i, j, cnt)
+    
+#     elif i < row and j == 0:
+#         return right_up(i, j, cnt)
+#     cnt += 1
+#     i += 1
+#     j -= 1
+#     # print(1)
+#     # print(i, j, cnt)
+#     return left_up(i, j, cnt)
+
+# def left_down(i, j, cnt):
+#     if cnt == move:
+#         return i, j, cnt
+
+#     if i == 0  and 0 < j < col:
+#         return left_up(i, j, cnt)
+    
+#     elif i == 0 and j == 0:
+#         return right_up(i, j, cnt)
+    
+#     elif 0 < i < row and j == 0:
+#         return right_down(i, j, cnt)
+#     cnt += 1
+#     i -= 1
+#     j -= 1
+#     # print(3)
+#     # print(i, j, cnt)
+#     return left_down(i, j, cnt)
+
+# def right_down(i, j, cnt):
+#     if cnt == move:
+#         return i, j, cnt
+
+#     if 0 < i < row  and j == col:
+#         return left_down(i, j, cnt)
+    
+#     elif i == 0 and j == col:
+#         return left_up(i, j, cnt)
+    
+#     elif i == 0 and 0 < j < col:
+#         return right_up(i, j, cnt)
+#     cnt += 1
+#     i -= 1
+#     j += 1
+#     # print(4)
+#     # print(i, j, cnt)
+#     return right_down(i, j, cnt)
+
+
+# col, row = map(int, input().split())
+# s_j, s_i = map(int, input().split())
+# move = int(input())
+# # arr = [[0 for _ in range(col)] for _ in range(row)]
+# cnt_v = 0
+# result = right_up(s_i, s_j, cnt_v)
+# # print(result)
+# end_i = result[1]
+# end_j = result[0]
+# print(end_i, end_j)
+# # pprint(arr)
