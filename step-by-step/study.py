@@ -73,3 +73,42 @@ from pprint import pprint
 # result = max_row * max_col
 
 # print(result)
+
+
+# # 23881 선택정렬 1
+# import sys
+# input = sys.stdin.readline
+
+# N, K = map(int, input().split())
+# lst = list(map(int, input().split()))
+
+# # 몇 번 정렬 했는지
+# cnt = 0
+# # 횟수 채웠나요?
+# end = False
+# for i in range(len(lst)-1, -1, -1):
+#     # 초기 변수
+#     max_v = -0xffffff
+#     max_idx = -1
+#     # 최댓값 찾기
+#     for j in range(i+1):
+#         if lst[j] > max_v:
+#             max_v = lst[j]
+#             max_idx = j
+#     # 마지막 인덱스가 최대가 아니면 자리 바꿔주기
+#     if lst[i] != max_v:
+#         lst[i], lst[max_idx] = lst[max_idx], lst[i]
+#         cnt +=1
+#     else:
+#         pass
+#     # 지정 횟수만큼 정렬 해줬으면 종료하고 값 프린뜨 하고횟수 채웠다고 해주기
+#     if cnt == K:
+#         print(lst[max_idx], lst[i])
+#         end = True
+#         break
+#     # 왜 했는지 모르겠군요
+#     max_v = -0xffffff
+
+# # 횟수 미달이면 -1 출력
+# if end == False:
+#     print(-1)
