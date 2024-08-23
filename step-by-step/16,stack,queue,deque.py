@@ -112,36 +112,55 @@
 
 
 # 12789 도키도키 간식드리미
+def dokidoki(lst):
+    status = 'Nice'
+    # 받은 사람이 들어간다
+    result = []
+    # 대기소
+    stack = []
+    # 번호표
+    num = 1
+    # 최솟값 구하면서 더 큰 값 대기열에 오면 sad ㅠㅠ
+    min_v = 21e8
+
+    while lst:
+        n = lst.pop(0)
+        # 스택에 없을 때
+        if n > num:
+            # if min_v<n:
+            #     status = 'Sad'
+            #     break
+            # else:
+            min_v = n
+            stack.append(n)
+        elif n == num:
+            result.append(n)
+            num+=1
+
+        # 스택에 있을 때
+        if stack and lst:
+            if stack[-1] == num:
+                a = stack.pop()
+                result.append(a)
+                num += 1
+            elif lst[0] == num:
+                a = lst.pop(0)
+                result.append(a)
+                num += 1
+
+
+
+
+
+
 N = int(input())
 lst = list(map(int, input().split()))
 
-status = 'Nice'
 
-first = 1
-stack = []
-min_pop = 21e8
-pop_cnt = 0
-poped = 0
 
-while pop_cnt == N:
 
-    if stack[-1] == first:
-        stack.pop()
 
-    # 순번 부르기
-    poped = lst.pop(0)
-    pop_cnt +=1
     
-    # 세로 대기열 들어가는 사람이 먼저 들어간 사람보다 크면 break 
-    if poped > min_pop:
-        status = 'Sad'
-        break
-    else:
-        min_pop = poped
-
-        
-    if poped == first:
-        first += 1
-    else:
-        stack.append(poped)
+    
+print(stack)
 print(status)
