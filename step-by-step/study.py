@@ -112,3 +112,31 @@ from pprint import pprint
 # # 횟수 미달이면 -1 출력
 # if end == False:
 #     print(-1)
+
+
+
+# 1654 랜선 자르기
+def check(lst):
+    start = 1
+    end = max(lst)
+    result = 0
+    while start<= end:
+        mid = (start+end)//2
+
+        cable = 0
+
+        for c in lst:
+            cable += c//mid
+        
+        if cable < N:
+            end = mid - 1 
+        else:
+            result = mid
+            start = mid + 1
+        
+    return result
+    
+
+K, N = map(int,input().split())
+lst = [int(input()) for _ in range(K)]
+print(check(lst))
