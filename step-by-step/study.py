@@ -115,28 +115,71 @@ from pprint import pprint
 
 
 
-# 1654 랜선 자르기
-def check(lst):
-    start = 1
-    end = max(lst)
-    result = 0
-    while start<= end:
-        mid = (start+end)//2
+# # 1654 랜선 자르기
+# def check(lst):
+#     start = 1
+#     end = max(lst)
+#     result = 0
+#     while start<= end:
+#         mid = (start+end)//2
 
-        cable = 0
+#         cable = 0
 
-        for c in lst:
-            cable += c//mid
+#         for c in lst:
+#             cable += c//mid
         
-        if cable < N:
-            end = mid - 1 
-        else:
-            result = mid
-            start = mid + 1
+#         if cable < N:
+#             end = mid - 1 
+#         else:
+#             result = mid
+#             start = mid + 1
         
-    return result
+#     return result
     
 
-K, N = map(int,input().split())
-lst = [int(input()) for _ in range(K)]
-print(check(lst))
+# K, N = map(int,input().split())
+# lst = [int(input()) for _ in range(K)]
+# print(check(lst))
+
+
+# # 2468 안전 영역
+# from collections import deque
+
+# def Rain(max_rain):
+#     end = max_rain
+#     max_v = 0
+#     start_rain = 0
+#     while start_rain < end:
+#         visited = [[0] * N for _ in range(N)]
+#         safe = 0
+#         que = deque()
+#         for i in range(N):
+#             for j in range(N):
+#                 if arr[i][j] > start_rain and visited[i][j]==0:
+#                     que.append([i,j])
+#                     safe += 1
+                
+#                 while que:
+#                     qi, qj = que.popleft()
+#                     for pi, pj in [[0,1],[1,0],[0,-1],[-1,0]]:
+#                         ni = qi + pi
+#                         nj = qj + pj
+#                         if 0<=ni<N and 0<=nj<N and visited[ni][nj]==0 and arr[ni][nj] > start_rain:
+#                             visited[ni][nj] = 1
+#                             que.append([ni,nj])
+#         start_rain += 1
+#         if safe > max_v:
+#             max_v = safe
+
+#     return max_v
+
+# N = int(input())
+# arr = [list(map(int, input().split()))for _ in range(N)]
+
+# max_rain = 0
+# for i in arr:
+#     if max(i) > max_rain:
+#         max_rain = max(i)
+
+
+# print(Rain(max_rain))
