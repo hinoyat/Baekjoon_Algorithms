@@ -1,4 +1,4 @@
-# # 토마토
+# # 토마토2
 # def BFS(box):
 #     visited = [[0]*boxj for _ in range(boxi)]
 #     que = []
