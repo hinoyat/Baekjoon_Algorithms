@@ -76,43 +76,43 @@
 #     print()
 
 
-# 15686. 치킨 배달
-N, M = map(int, input().split())
-city = [[-1] * (N+1)] + [[-1] + list(map(int, input().split())) for _ in range(N)]
-
-chicken = []
-home = []
-for i in range(N+1):
-    for j in range(N+1):
-        if city[i][j] == 1:
-            home.append([i, j])
-        if city[i][j] == 2:
-            chicken.append([i, j])
-
-
-cn = len(chicken)
-MinV = 10e5
-for i in range(1 << cn):
-    subset = []
-    for j in range(cn):
-        if i & (1 << j):
-            subset.append(chicken[j])
-    
-    chicken_dist = 0
-    if len(subset) == M:
-        # print(subset)
-        for h in home:
-            MinS = 10e5
-            for c in subset:
-                store_dist = abs(h[0] - c[0]) + abs(h[1] - c[1])
-                if MinS > store_dist:
-                    MinS = store_dist
-            # print(MinS)
-            chicken_dist += MinS
-            # print(chicken_dist)
-
-
-        if MinV > chicken_dist:
-            MinV = chicken_dist
-
-print(MinV)
+# # 15686. 치킨 배달
+# N, M = map(int, input().split())
+# city = [[-1] * (N+1)] + [[-1] + list(map(int, input().split())) for _ in range(N)]
+#
+# chicken = []
+# home = []
+# for i in range(N+1):
+#     for j in range(N+1):
+#         if city[i][j] == 1:
+#             home.append([i, j])
+#         if city[i][j] == 2:
+#             chicken.append([i, j])
+#
+#
+# cn = len(chicken)
+# MinV = 10e5
+# for i in range(1 << cn):
+#     subset = []
+#     for j in range(cn):
+#         if i & (1 << j):
+#             subset.append(chicken[j])
+#
+#     chicken_dist = 0
+#     if len(subset) == M:
+#         # print(subset)
+#         for h in home:
+#             MinS = 10e5
+#             for c in subset:
+#                 store_dist = abs(h[0] - c[0]) + abs(h[1] - c[1])
+#                 if MinS > store_dist:
+#                     MinS = store_dist
+#             # print(MinS)
+#             chicken_dist += MinS
+#             # print(chicken_dist)
+#
+#
+#         if MinV > chicken_dist:
+#             MinV = chicken_dist
+#
+# print(MinV)
