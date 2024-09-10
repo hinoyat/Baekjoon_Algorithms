@@ -116,3 +116,29 @@
 #             MinV = chicken_dist
 #
 # print(MinV)
+
+import sys
+input = sys.stdin.readline
+from collections import deque
+def supernova(start, end):
+    que = deque([(start, 0)])
+    check = set()
+    check.add(start)
+    ans = 100000000000
+    while que:
+        now, cnt = que.popleft()
+        if now == end:
+            ans = min(ans, cnt)
+            return ans
+        for newval in (now - 1, now + 1, now * 2):
+            if newval <= 100000 and newval not in check:
+                check.add(newval)
+                if newval == now * 2:
+                    que.append((newval, cnt))
+                else:
+                    que.append((newval, cnt+1))
+
+    return ans
+
+N, K = map(int, input().split())
+print(supernova(N, K))
