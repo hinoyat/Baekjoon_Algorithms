@@ -130,13 +130,14 @@ def supernova(start, end):
         if now == end:
             ans = min(ans, cnt)
             return ans
-        for newval in (now - 1, now + 1, now * 2):
+
+        for newval in (now * 2, now - 1, now + 1):
             if newval <= 100000 and newval not in check:
-                check.add(newval)
                 if newval == now * 2:
                     que.append((newval, cnt))
                 else:
                     que.append((newval, cnt+1))
+                check.add(newval)
 
     return ans
 
