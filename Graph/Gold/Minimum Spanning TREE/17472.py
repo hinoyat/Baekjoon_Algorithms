@@ -47,13 +47,16 @@ def find_bridge(i, j):
         nj = j + dj
         mid = 0
         if 0 > ni or 0 > nj or ni >= N or nj >= M:
-            break
+            continue
+        if info[ni][nj] == my_land:
+            continue
+
         while True:
             if 0 > ni or 0 > nj or ni >= N or nj >= M:
                 break
 
             if info[ni][nj] != 0 and info[ni][nj] != my_land:
-                if mid <= 1:
+                if mid < 2:
                     break
                 bridge = mid
                 other_land = info[ni][nj]
@@ -65,8 +68,6 @@ def find_bridge(i, j):
             mid += 1
             ni = ni + di
             nj = nj + dj
-            # 다른 땅 만나면 O
-
     return result
 
 N, M = map(int, input().split())
