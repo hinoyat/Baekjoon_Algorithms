@@ -145,51 +145,52 @@
 # print(supernova(N, K))
 
 
-def Джедайские(che):
-    global ans
-    result = int(che[0])
+# def Джедайские(che):
+#     global ans
+#     result = int(che[0])
+#
+#     for i in range(len(che)):
+#         if che[i] == '+':
+#             result += int(che[i + 1])
+#         elif che[i] == '-':
+#             result -= int(che[i + 1])
+#
+#     ans = max(ans, result)
+#
+#
+# lst = list(input())
+# ans = 0
+# # print(lst)
+#
+# num = []
+# order = []
+#
+# idx = 0
+# numv = ''
+# while idx < len(lst):
+#     if lst[idx] == '+' or lst[idx] == '-':
+#         num.append(numv)
+#         num.append(lst[idx])
+#         numv = ''
+#     else:
+#         numv += lst[idx]
+#     idx += 1
+#
+#     if idx == len(lst):
+#         num.append(numv)
+# # print(num, order)
+# import copy
+# # 연산자 기준으로 양 옆 묶어서 보내기
+# check = []
+# for i in range(len(num)):
+#     if num[i] == '+' or num[i] == '-':
+#         check = copy.deepcopy(num)
+#         new_num = check[i - 1] + check[i + 1]
+#         check[i] = new_num
+#         check.pop(i + 1)
+#         check.pop(i - 1)
+#         Джедайские(check)
+#         # print(check)
+#
+# print(ans)
 
-    for i in range(len(che)):
-        if che[i] == '+':
-            result += int(che[i + 1])
-        elif che[i] == '-':
-            result -= int(che[i + 1])
-
-    ans = max(ans, result)
-
-
-lst = list(input())
-ans = 0
-# print(lst)
-
-num = []
-order = []
-
-idx = 0
-numv = ''
-while idx < len(lst):
-    if lst[idx] == '+' or lst[idx] == '-':
-        num.append(numv)
-        num.append(lst[idx])
-        numv = ''
-    else:
-        numv += lst[idx]
-    idx += 1
-
-    if idx == len(lst):
-        num.append(numv)
-# print(num, order)
-import copy
-# 연산자 기준으로 양 옆 묶어서 보내기
-check = []
-for i in range(len(num)):
-    if num[i] == '+' or num[i] == '-':
-        check = copy.deepcopy(num)
-        new_num = check[i - 1] + check[i + 1]
-        check[i] = new_num
-        check.pop(i + 1)
-        check.pop(i - 1)
-        Джедайские(check)
-        # print(check)
-
-print(ans)
