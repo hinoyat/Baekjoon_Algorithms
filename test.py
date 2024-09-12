@@ -117,29 +117,79 @@
 #
 # print(MinV)
 
-import sys
-input = sys.stdin.readline
-from collections import deque
-def supernova(start, end):
-    que = deque([(start, 0)])
-    check = set()
-    check.add(start)
-    ans = 100000000000
-    while que:
-        now, cnt = que.popleft()
-        if now == end:
-            ans = min(ans, cnt)
-            return ans
+# import sys
+# input = sys.stdin.readline
+# from collections import deque
+# def supernova(start, end):
+#     que = deque([(start, 0)])
+#     check = set()
+#     check.add(start)
+#     ans = 100000000000
+#     while que:
+#         now, cnt = que.popleft()
+#         if now == end:
+#             ans = min(ans, cnt)
+#             return ans
+#
+#         for newval in (now * 2, now - 1, now + 1):
+#             if newval <= 100000 and newval not in check:
+#                 if newval == now * 2:
+#                     que.append((newval, cnt))
+#                 else:
+#                     que.append((newval, cnt+1))
+#                 check.add(newval)
+#
+#     return ans
+#
+# N, K = map(int, input().split())
+# print(supernova(N, K))
 
-        for newval in (now * 2, now - 1, now + 1):
-            if newval <= 100000 and newval not in check:
-                if newval == now * 2:
-                    que.append((newval, cnt))
-                else:
-                    que.append((newval, cnt+1))
-                check.add(newval)
 
-    return ans
+def Джедайские(che):
+    global ans
+    result = int(che[0])
 
-N, K = map(int, input().split())
-print(supernova(N, K))
+    for i in range(len(che)):
+        if che[i] == '+':
+            result += int(che[i + 1])
+        elif che[i] == '-':
+            result -= int(che[i + 1])
+
+    ans = max(ans, result)
+
+
+lst = list(input())
+ans = 0
+# print(lst)
+
+num = []
+order = []
+
+idx = 0
+numv = ''
+while idx < len(lst):
+    if lst[idx] == '+' or lst[idx] == '-':
+        num.append(numv)
+        num.append(lst[idx])
+        numv = ''
+    else:
+        numv += lst[idx]
+    idx += 1
+
+    if idx == len(lst):
+        num.append(numv)
+# print(num, order)
+import copy
+# 연산자 기준으로 양 옆 묶어서 보내기
+check = []
+for i in range(len(num)):
+    if num[i] == '+' or num[i] == '-':
+        check = copy.deepcopy(num)
+        new_num = check[i - 1] + check[i + 1]
+        check[i] = new_num
+        check.pop(i + 1)
+        check.pop(i - 1)
+        Джедайские(check)
+        # print(check)
+
+print(ans)

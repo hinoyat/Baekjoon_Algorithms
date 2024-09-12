@@ -28,16 +28,21 @@ Z_info = []
 parent = [i for i in range(N)]
 graph = []
 
-for _ in range(N):
+for p in range(N):
     x, y, z = map(int, input().split())
-    X_info.append(x)
-    Y_info.append(y)
-    Z_info.append(z)
+    X_info.append((x, p))
+    Y_info.append((y, p))
+    Z_info.append((z, p))
 
+X_info.sort()
+Y_info.sort()
+Z_info.sort()
 for i in range(N - 1):
-    for j in range(i + 1, N):
-        graph.append((min(abs(X_info[i] - X_info[j]), abs(Y_info[i] - Y_info[j]), abs(Z_info[i] - Z_info[j])), i, j))
-# print(graph)
+    # graph.append((min(abs(X_info[i][0] - X_info[i + 1][0]), abs(Y_info[i][0] - Y_info[i + 1][0]), abs(Z_info[i][0] - Z_info[i + 1][0])), i, i + 1))
+    graph.append((abs(X_info[i][0] - X_info[i + 1][0]), X_info[i][1], X_info[i+1][1]))
+    graph.append((abs(Y_info[i][0] - Y_info[i + 1][0]), Y_info[i][1], Y_info[i+1][1]))
+    graph.append((abs(Z_info[i][0] - Z_info[i + 1][0]), Z_info[i][1], Z_info[i+1][1]))
+
 graph.sort()
 ans = 0
 for v, c1, c2 in graph:

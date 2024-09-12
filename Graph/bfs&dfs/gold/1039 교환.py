@@ -1,8 +1,14 @@
 def supernova(level, info):
     global ans
+    if len(info) == 1:
+        return
+
+    if info[0] == '0':
+        return
     val = int(''.join(info))
     if (val, level) in check:
         return
+    # print(val)
 
     check.add((val, level))
     if level == N:
@@ -13,7 +19,6 @@ def supernova(level, info):
     for i in range(len(info)):
         for j in range(len(info)):
             if i != j:
-                if info[j] == '0':continue
                 info[i], info[j] = info[j], info[i]
                 supernova(level + 1, info)
                 info[i], info[j] = info[j], info[i]
@@ -21,11 +26,13 @@ def supernova(level, info):
 
 
 
-info = list(input())
-N = int(info.pop())
-info.pop()
+info1 = list(input().split())
+# print(info1)
+N = int(info1.pop())
+# info1.pop()
 ans = -1
 check = set()
-# print(info, N)
-supernova(0, info)
+info1 = list(info1[0])
+# print(info1, N)
+supernova(0, info1)
 print(ans)
