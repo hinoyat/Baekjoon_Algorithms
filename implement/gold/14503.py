@@ -5,10 +5,6 @@ def robo(si, sj, di):
     j = sj
     d = di
 
-
-
-
-
     pass
 
 
