@@ -233,5 +233,10 @@ for _ in range(K):
     info = new_info
 
 # 최종 결과 계산
-total_mass = sum(m for fireballs in info.values() for m, _, _ in fireballs)
+total_mass = 0
+for fireballs in info.values():
+    for fireball in fireballs:
+        mass = fireball[0]
+        total_mass += mass
+
 print(total_mass)
