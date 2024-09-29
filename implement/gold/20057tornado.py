@@ -50,20 +50,11 @@ arr = [list(map(int, input().split())) for _ in range(N)]
 
 start_point = [N//2, N//2]
 start_sand = 0
-for i in range(N):
-    start_sand += sum(arr[i])
-# 45퍼센트가 주위 칸 나머지는 토네이도가 부는 칸
-
-
-visited = [[0] * N for _ in range(N)]
-
-# pprint.pprint(visited)
 
 direction = {0 : (0, -1), 1 : (1, 0), 2 : (0, 1), 3 : (-1, 0)}
 end_point = (0, 0)
 
 ni, nj = start_point[0], start_point[1]
-visited[ni][nj] = 1
 di = 0
 cnt = 0
 move_cnt = 0
@@ -72,7 +63,6 @@ ans = 0
 while True:
     tornado(ni, nj, di)
     ni, nj = ni + direction[di][0], nj + direction[di][1]
-    visited[ni][nj] = 1
     cnt += 1
     if cnt == max_move_cnt:
         move_cnt += 1
@@ -87,10 +77,6 @@ while True:
     # pprint.pprint(arr)
     # print(ni, nj)
 
-# pprint.pprint(visited)
 # pprint.pprint(arr)
-result_tornado = 0
-for j in range(N):
-    result_tornado += sum(arr[j])
 
-print(start_sand - result_tornado)
+print(ans)
